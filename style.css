@@ -1,0 +1,245 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    width: 100%;
+}
+
+header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    /* height: 70px; */
+    /* border: 1px solid gray; */
+
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10; 
+}
+
+.logo img {
+    max-width: 100px;
+    height: 80px;
+}
+
+nav .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+nav .nav-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    transition: color 0.3s;
+}
+
+nav ul{
+    display: flex;
+    gap: 15px;  
+}
+
+.image-container{
+    height: 100vh;
+    width: 100%;
+    /* height: calc(100vh - 90px); */
+    background-image: url('/Images/silos-2.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+.slogan{
+    position: absolute;
+    top: 25%; 
+    left: 15%; 
+    transform: translate(-50%, -50%); 
+    text-align: center; 
+    color: white; 
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    width: 100%;
+    height: 100%;
+    font-size: 32px;
+}
+
+.slogan .left, .slogan .right {
+    position: absolute;
+    display: inline-block;
+    opacity: 0;
+    position: relative;
+}
+
+/* Animacija za levu stranu */
+.slogan .left {
+    top: 45%;
+    left: 10%;
+    animation: slideInLeft 2s ease-in-out forwards;
+}
+
+/* Animacija za desnu stranu */
+.slogan .right {
+    animation: slideInRight 2s ease-in-out forwards;
+    animation-delay: 1s; /* Kašnjenje za drugu polovinu */
+    bottom: 25%;
+    right: -25%;
+    position: absolute;
+}
+
+/* Ključne tačke za levu animaciju */
+@keyframes slideInLeft {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Ključne tačke za desnu animaciju */
+@keyframes slideInRight {
+    0% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.info-container{
+    width: 80%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto; 
+    border: 1px solid gray;
+    background-color: #FEFCFA;
+    
+}
+.info{
+    padding-top: 7rem;
+    display: flex;
+    flex-direction: column;
+    
+}
+ .maximize{
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ text-align: center;
+}
+
+.maximize h2 {
+    font-size: 2.5rem;
+    color: #433F42;
+    font-weight: 600;
+}
+
+.info p{
+    padding-top: 1rem;
+    padding-bottom: 3rem;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 1.4rem;
+    color: #9F9C9E;
+}
+
+
+.wrapper{
+    width: 100%;
+    display: flex;
+}
+
+.image1{
+    width: 47%;
+}
+
+.image1 img {
+    width: auto;  
+    height: auto;
+    max-height: 600px;
+    object-fit:fill; 
+    /* padding-top:1rem; */
+    
+}
+
+.text{
+    width: 49%;
+    background-color: #FEFCFA;
+    
+}
+
+.text h3{
+    font-size: 1.5rem;
+    padding-bottom: 2rem;
+    padding-top: 2rem;
+    color: #433F42;
+    font-weight: 500;
+}
+
+.text h3:first-of-type {
+    padding-top: 0;
+}
+
+.text p{
+    font-size: 1.3rem;
+    color: #9F9C9E;
+}
+
+.wrapper-2{
+    display: flex;
+}
+
+.logo-center {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    padding-top: 8rem; 
+    padding-bottom: 8rem;           
+  }
+
+  .logo-center img {
+    width: 200px; 
+    height: auto; 
+  }
+
+
+  .info-2{
+    /* padding-top: 7rem; */
+    display: flex;
+    flex-direction: column;
+    
+}
+ .maximize-2{
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ text-align: center;
+}
+
+.maximize-2 h2 {
+    font-size: 2.5rem;
+    color: #433F42;
+    font-weight: 600;
+}
+
+.info-2 p{
+    padding-top: 1rem;
+    padding-bottom: 3rem;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 1.4rem;
+    color: #9F9C9E;
+}

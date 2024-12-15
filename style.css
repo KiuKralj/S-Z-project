@@ -4,8 +4,42 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+  }
+
 body{
     width: 100%;
+    /* overflow: hidden; */
+}
+
+.scroll-top-btn {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    background-color: #262B35;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.scroll-top-btn:hover {
+    background-color: #97938E;
+}
+
+/* Efekat kada dugme postane nevidljivo (pri skrolovanju) */
+.scroll-top-btn.hidden {
+    opacity: 0;  /* Postavlja dugme kao potpuno nevidljivo */
+    pointer-events: none;  /* Onemogućava klikove kada je dugme nevidljivo */
+}
+
+/* Efekat pri normalnoj vidljivosti dugmeta */
+.scroll-top-btn.visible {
+    opacity: 1;  /* Dugme postaje vidljivo */
 }
 
 header{
@@ -50,7 +84,7 @@ nav ul{
     height: 100vh;
     width: 100%;
     /* height: calc(100vh - 90px); */
-    background-image: url('Images/silos-2.webp');
+    background-image: url('/Images/Silos-2.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -88,8 +122,8 @@ nav ul{
 .slogan .right {
     animation: slideInRight 2s ease-in-out forwards;
     animation-delay: 1s; /* Kašnjenje za drugu polovinu */
-    bottom: 25%;
-    right: -25%;
+    bottom: 35%;
+    right: 22%;
     position: absolute;
 }
 
@@ -118,128 +152,416 @@ nav ul{
 }
 
 .info-container{
-    width: 80%;
+    width: 100%;
     height: auto;
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
     justify-content: center;
     margin: 0 auto; 
     border: 1px solid gray;
     background-color: #FEFCFA;
+    padding: 40px;
+    background-color: #FFF4E4;
+}
+
+.info-image{
+    width: 40%;
+    height: auto;
+}
+
+.info-image img{
+    width: 100%;
+    height: auto;
+    padding-right: 40px;
+}
+
+.info-text {
+    padding-right: 50px;
+    width: 60%;
+}
+
+.info-text h3{
+    font-size: 56px;
+    color: #262B35;
+    padding-bottom: 15px;
+   
+}
+
+.info-text p {
+    font-size: 20px;
+    color: #93918C;
     
 }
-.info{
-    padding-top: 7rem;
-    display: flex;
-    flex-direction: column;
-    
-}
- .maximize{
- display: flex;
- flex-direction: column;
- justify-content: center;
- text-align: center;
+
+.info-text h4 {
+    padding: 15px 0px;
+    font-size: 30px;
+    color: #262B35;
 }
 
-.maximize h2 {
-    font-size: 2.5rem;
-    color: #433F42;
-    font-weight: 600;
+.info-text button{
+    color: white;
+    background-color: #21493B;
+    padding: 10px 20px;
+    border-radius: 10px;
+    margin-top: 20px;
 }
 
-.info p{
-    padding-top: 1rem;
-    padding-bottom: 3rem;
-    padding-left: 10px;
-    padding-right: 10px;
-    font-size: 1.4rem;
-    color: #9F9C9E;
-}
-
-
-.wrapper{
+.expertise{
     width: 100%;
     display: flex;
 }
 
-.image1{
-    width: 47%;
-}
-
-.image1 img {
-    width: auto;  
-    height: auto;
-    max-height: 600px;
-    object-fit:fill; 
-    /* padding-top:1rem; */
-    
-}
-
-.text{
-    width: 49%;
-    background-color: #FEFCFA;
-    
-}
-
-.text h3{
-    font-size: 1.5rem;
-    padding-bottom: 2rem;
-    padding-top: 2rem;
-    color: #433F42;
-    font-weight: 500;
-}
-
-.text h3:first-of-type {
-    padding-top: 0;
-}
-
-.text p{
-    font-size: 1.3rem;
-    color: #9F9C9E;
-}
-
-.wrapper-2{
-    display: flex;
-}
-
-.logo-center {
-    display: flex;
-    justify-content: center; 
-    align-items: center;
-    padding-top: 8rem; 
-    padding-bottom: 8rem;           
-  }
-
-  .logo-center img {
-    width: 200px; 
+.expertise-image{
+    width: 50%;
     height: auto; 
-  }
+    overflow: hidden;
+}
+
+.expertise-image img{
+  width: 100%;
+  height: auto; 
+  display: block;
+  
+}
 
 
-  .info-2{
-    /* padding-top: 7rem; */
+
+.expertise-text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    background-color: #CB7A48;
+    
+}
+
+.expertise-text-positioning{
+   padding: 4rem;
+   opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.expertise-text-positioning.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.expertise-text-positioning h3{
+    font-size: 48px;
+    color: #1A1C24;
+    padding-bottom: 2rem;
+  
+}
+
+.expertise-text-positioning p{
+    font-size: 22px;
+    color: #F4D3BA;
+}
+
+.expertise-text-positioning button{
+    color: #7F7E85;
+    background-color: #FFFFFF;
+    padding: 10px 20px;
+    font-weight: 600;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.gallery-text{
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 7rem;
+    background-color: #FFF4E6;
+}
+.gallery-text h3{
+    font-size: 61px;
+    color: #3c4043;
+}
+
+.gallery-text p {
+ color: #97938E;
+ font-size: 1.5rem;
+ padding-top: 1rem;
+}
+
+.gallery-pictures{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 20px;
+    padding: 6rem 1.5rem;
+    background-color: #FFF4E6;
+}
+
+.gallery-img{
+  max-width: 100%;
+  width: calc(33.333% - 20px);
+}
+
+.gallery-img img{
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-img img:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.logo-2{
+    display: flex;
+    justify-content: center;
+    background-color: #FFF4E6;
+}
+
+
+.logo-2 img {
+    position: relative;
+    left: -200px;  /* Van ekrana sa leve strane */
+    opacity: 0;    /* Logo je nevidljiv na početku */
+    transition: all 1s ease;  /* Prelazna animacija kada se promeni pozicija */
+  }
+  
+  /* Kada se primeni klasa 'visible', logo će postati vidljiv i pomeriti se na svoju poziciju */
+  .logo-2.visible img {
+    left: 0;       /* Finalna pozicija */
+    opacity: 1;    /* Logo postaje vidljiv */
+  }
+
+
+
+.logo-2 img{
+    width: 300px;
+    /* height: auto; */
+    padding-top: 14rem;
+    padding-bottom: 14rem;
+}
+
+
+.trusted-partners-container {
+    padding: 6rem 20px;
+    background-color: #FDF6EC;
+}
+
+.trusted-partners-heading{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.trusted-partners-heading p {
+    font-size: 1.5rem;
+    color: #4A4A4A;;
+    padding: 1rem;
+}
+
+.trusted-partners-title {
+    text-align: center;
+    font-size: 3.8rem;
+    color: #3C4043;
+    margin-bottom: 20px;
+    font-weight: bold;
+    /* text-transform: uppercase; */
+}
+
+.trusted-partners {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 40px;
+    grid-auto-rows: 1fr;
+    /* background-color: #f9f9f9; */
+}
+
+.partner {
+    border: 1px solid #C7CFC7;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #FFFFFF;;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    /* flex: 1 1 calc(33.333% - 30px); */
+}
+
+.partner:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    border-color: #CB7A48;
+}
+
+.partner h2 {
+    font-size: 1.5rem;
+    color: #21493B;;
+    margin-bottom: 10px;
+}
+
+.partner p {
+    font-size: 1rem;
+    color: #666666;
+}
+
+.partner:hover h2 {
+    color: #CB7A48; /* Narandžasta za naslov pri hoveru */
+}
+
+.our-expertise {
+    text-align: center; /* Centrirajte tekst */
+    background-color: #FFF6E7;
+    padding-bottom: 8rem;
+}
+
+.our-expertise h2 {
+    font-size: 52px;
+    margin-bottom: 40px;
+    color: #3D5957;
+    /* font-weight: 10000; */
+}
+
+.our-expertise p {
+    font-size: 1.3rem;
+    margin-bottom: 40px;
+    color: #918476;
+    padding-bottom: 2rem;
+}
+
+.our-expertise-img {
+    display: inline-block; /* Podesite slike u jedan red */
+    margin: 0 10px; /* Razmak između slika */
+}
+
+.our-expertise-img img {
+    width: 100%; /* Slike zauzimaju celu širinu roditeljskog elementa */
+    max-width: 290px; /* Ograničite maksimalnu širinu slike */
+    height: 450px; /* Postavite konstantnu visinu za sve slike */
+    object-fit: cover; /* Očuvanje proporcija slike i popunjavanje kutije */    border-radius: 8px; /* Dodajte zaobljene ivice za lepši izgled */
+    /* padding-bottom: 1rem; */
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); */
+}
+
+.our-expertise-img h3{
+    font-size: 1.4rem;
+    color: #3C4043;
+    padding-top: 1rem;
+    padding-bottom: 4rem;
+}
+
+.contact-us{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #314D46;
+    padding: 80px;
+}
+
+.contact-us-text{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    /* align-items: center; */
+    width: 45%;
     
 }
- .maximize-2{
- display: flex;
- flex-direction: column;
- justify-content: center;
- text-align: center;
+
+.contact-us h3{
+    color: #F6F4EE;
+    font-size: 3.1rem; 
+    padding-bottom: 2rem;
 }
 
-.maximize-2 h2 {
-    font-size: 2.5rem;
-    color: #433F42;
-    font-weight: 600;
+.contact-us p{
+    color: #C7CFC7;
+    font-size: 1.5rem;
 }
 
-.info-2 p{
-    padding-top: 1rem;
-    padding-bottom: 3rem;
-    padding-left: 10px;
-    padding-right: 10px;
-    font-size: 1.4rem;
-    color: #9F9C9E;
+.contact-us-img {
+    width: 40%; /* Slika zauzima 40% širine */
+    display: flex;
+    justify-content: flex-end; /* Pomeranje slike prema desnoj ivici */
 }
+.contact-us-img img {
+    width: 100%; /* Slika zauzima celu širinu div-a */
+    height: auto; /* Očuvanje proporcija slike */
+    overflow: hidden;
+}
+
+.contact-us-text p{
+   padding-bottom: 15px;
+}
+
+footer{
+    display: flex;
+    padding: 20px;
+    justify-content: space-evenly;
+    background-color: #FFF4E6;
+    color: #3C4043;
+    padding: 40px 20px;
+    text-align: left;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer-container {
+    /* display: flex; */
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    width: 100%;
+}
+
+.logo-nav{
+   display: flex;
+   justify-content: center;
+   justify-content: space-around;
+}
+
+.logo-footer img{
+    width: 200px;
+    height: auto;
+    margin-bottom: 20px;
+    /* padding: 15px; */
+}
+.quick-navigation h4{
+    font-size: 1.5rem;
+    padding-bottom: 10px;
+}
+
+.quick-navigation ul {
+    list-style: none;
+    padding: 0;
+}
+.quick-navigation ul li {
+    padding-bottom: 0.85rem;
+    cursor: pointer;
+    
+}
+
+.quick-navigation a {
+    text-decoration: none;
+    color: #3C4043;
+}
+
+.quick-navigation a:hover {
+    color: #808487;  /* Promeni boju na plavu kada korisnik pređe mišem */
+  }
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 1rem;
+    padding-top: 2rem;
+    
+}
+
+
